@@ -5,9 +5,11 @@ module Npm
   module Rails
     module TaskHelpers
 
-      # Copied from mkmkf, iwhich poolutes the global namespace and fucks with Rails.
+      # Copied from mkmkf, which pollutes the global namespace with many fun methods.
       # Specifically, it adds a `configuration` method to every object, including nil.
-      # This breaks things like `delegate :configuration, to: :something`. Argh.
+      # This breaks things like `delegate :configuration, to: :something`.
+      #
+      # Also, find_exectuable0 was marked as internal use only in mkmf.rb.
       def self.find_executable(bin, path = nil)
           executable_file = proc do |name|
             begin
